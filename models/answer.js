@@ -1,11 +1,17 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var answer = sequelize.define('answer', {
-    rating: DataTypes.INTEGER
+    rating: {
+      type: DataTypes.INTEGER,
+      allowNull: false
+    }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
+        models.answer.belongsTo(models.question);
+        models.answer.belongsTo(models.student);
+        models.answer.belongsTo(models.course);
       }
     }
   });

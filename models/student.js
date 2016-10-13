@@ -1,4 +1,6 @@
 'use strict';
+
+//TODO: ano que entrou na faculdade
 module.exports = function(sequelize, DataTypes) {
   var student = sequelize.define('student', {
     name: {
@@ -21,7 +23,11 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.DATEONLY,
       allowNull: false
     },
-    undergraduation: {
+    undergrad: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    undergradStartDate: {
       type: DataTypes.STRING,
       allowNull: false
     }

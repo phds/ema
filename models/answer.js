@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // associations can be defined here
         models.answer.belongsTo(models.question);
-        models.answer.belongsTo(models.student);
+        models.answer.belongsTo(models.user, {as: 'student'});
         models.answer.belongsTo(models.course);
       }
     }

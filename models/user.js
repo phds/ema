@@ -1,44 +1,46 @@
 'use strict';
 
-//TODO: ano que entrou na faculdade
 module.exports = function(sequelize, DataTypes) {
-  var student = sequelize.define('student', {
+  var user = sequelize.define('user', {
     name: {
       type: DataTypes.STRING,
       allowNull: false
     },
     email: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique:true
     },
     password: {
       type: DataTypes.STRING,
       allowNull: false
     },
+    isProfessor: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false
+    },
     gender: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     birthday: {
       type: DataTypes.DATEONLY,
-      allowNull: false
+      allowNull: true
     },
     undergrad: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     },
     undergradStartDate: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: true
     }
   }, {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        models.student.belongsToMany(models.course, {through: 'studentCourse'});
-        models.student.hasMany(models.answer);
       }
     }
   });
-  return student;
+  return user;
 };

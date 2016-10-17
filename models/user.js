@@ -1,5 +1,7 @@
 'use strict';
 
+var bcrypt = require('bcrypt');
+
 module.exports = function(sequelize, DataTypes) {
   var user = sequelize.define('user', {
     name: {
@@ -36,9 +38,24 @@ module.exports = function(sequelize, DataTypes) {
       allowNull: true
     }
   }, {
-    classMethods: {
-      associate: function(models) {
-        // associations can be defined here
+    instanceMethods: {
+      comparePassword: function (password, cb) {
+        bcrypt.compare(password, this.password, function (err, isMatch) {
+            if (err) {
+                return cb(err);
+            }
+            cb(null, isMatch);
+        });
+      }
+    },
+    hooks: {
+      beforeCreate: function(user, options){
+        var hash = bcrypt.hashSync(user.password, 10);
+        user.password = hash;
+      },
+      beforeUpdate: function(user, options){
+        var hash = bcrypt.hashSync(user.password, 10);
+        user.password = hash;
       }
     }
   });

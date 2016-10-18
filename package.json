@@ -14,7 +14,7 @@
   },
   "homepage": "https://github.com/phds/ema#readme",
   "scripts": {
-    "start": "nodemon ./bin/www"
+    "start": "nodemon ./app/bin/www"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",

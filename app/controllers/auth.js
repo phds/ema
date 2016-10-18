@@ -1,4 +1,4 @@
-var user = require('../models').user;
+var user = require('..db/models').user;
 var jwtToken = require('../util/jwtToken');
 
 module.exports.generateToken = (req, res) => {

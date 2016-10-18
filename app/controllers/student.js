@@ -1,4 +1,4 @@
-var user = require('../models').user;
+var user = require('../db/models').user;
 
 module.exports.postStudent = (req, res) => {
   user.create({

@@ -23,3 +23,17 @@ module.exports.generateToken = (req, res) => {
     res.json({error: 'Invalid email/password combination'});
   });
 }
+
+module.exports.isAuthenticated = (req, res, next) => {
+
+  var userId = jwtToken.verifyToken(req.header('token'), (err, payload) => {
+    if(err) return res.json({error: 'Invalid token!'});
+
+    user.findOne({id: userId}).then((user) => {
+      req.user = user;
+      return next();
+    }).catch((err) => {
+      return res.json({error: 'Authentication failed!'});
+    });
+  });
+}

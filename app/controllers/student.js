@@ -1,3 +1,5 @@
+'use strict';
+
 var user = require('../db/models').user;
 
 module.exports.postStudent = (req, res) => {
@@ -18,5 +20,5 @@ module.exports.postStudent = (req, res) => {
   }).catch((err) =>{
     //TODO: send clearer messages for specific errors
     res.status(500).json({error: err.errors[0].message});
-  })
+  });
 };

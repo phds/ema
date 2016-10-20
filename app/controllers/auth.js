@@ -1,3 +1,5 @@
+'use strict';
+
 var user = require('..db/models').user;
 var jwtToken = require('../util/jwtToken');
 
@@ -11,7 +13,7 @@ module.exports.generateToken = (req, res) => {
         return res.json({error: err.name});
       }
       if(isMatch){
-        token = jwtToken.issueToken({id:user.id});
+        var token = jwtToken.issueToken({id:user.id});
         console.log(token);
         res.json({token: token});
       }
@@ -22,7 +24,7 @@ module.exports.generateToken = (req, res) => {
   }).catch((err) => {
     res.json({error: 'Invalid email/password combination'});
   });
-}
+};
 
 module.exports.isAuthenticated = (req, res, next) => {
 
@@ -36,4 +38,4 @@ module.exports.isAuthenticated = (req, res, next) => {
       return res.json({error: 'Authentication failed!'});
     });
   });
-}
+};

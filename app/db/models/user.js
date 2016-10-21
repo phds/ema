@@ -57,6 +57,14 @@ module.exports = function(sequelize, DataTypes) {
         var hash = bcrypt.hashSync(user.password, 10);
         user.password = hash;
       }
+    },
+    classMethods:{
+      associate: function(models) {
+        models.user.belongsToMany(models.course,{
+          through: 'student_course',
+          foreignKey: 'student_id'
+        });
+      }
     }
   });
   return user;

@@ -18,9 +18,11 @@ module.exports = function(sequelize, DataTypes) {
     classMethods: {
       associate: function(models) {
         // associations can be defined here
-        models.question.belongsToMany(models.course, {through: 'questionCourse'});
+        models.question.belongsToMany(models.course, {
+          through: 'question_course',
+          foreignKey: 'question_id'
+        });
         models.question.hasMany(models.answer);
-        models.question.belongsTo(models.course);
       }
     },
     timestamps: false

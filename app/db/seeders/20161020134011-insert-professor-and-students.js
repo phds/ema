@@ -1,5 +1,6 @@
 'use strict';
 
+var bcrypt = require('bcrypt');
 
 /*
 
@@ -255,7 +256,7 @@ var users = [
     id: 1,
     name: "Cristiano Araujo",
     email: "cristiano@araujo.com",
-    password: "password",
+    password: bcrypt.hashSync('password', 10),
     isProfessor: true,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -264,7 +265,7 @@ var users = [
     id: 2,
     name: "Daniel Oliveira",
     email: "daniel@oliveira.com",
-    password: "password",
+    password: bcrypt.hashSync('password', 10),
     isProfessor: false,
     createdAt: new Date(),
     updatedAt: new Date()
@@ -273,7 +274,7 @@ var users = [
     id: 3,
     name: "Pedro Castilho",
     email: "pedro@castilho.com",
-    password: "password",
+    password: bcrypt.hashSync('password', 10),
     isProfessor: false,
     createdAt: new Date(),
     updatedAt: new Date()

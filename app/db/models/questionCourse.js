@@ -17,6 +17,13 @@ module.exports = function(sequelize, DataTypes) {
       field: 'course_id'
     }
   }, {
+    classMethods: {
+      associate: function(models) {
+        models.question_course.hasMany(models.answer, {
+          foreignKey: 'question_course_id'
+        });
+      }
+    },
     freezeTableName: true
   });
   return questionCourse;

@@ -14,6 +14,7 @@ var app = express();
 
 //TODO: create the right migrations for setting up production code
 
+//TODO: change engine to handlebars
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');

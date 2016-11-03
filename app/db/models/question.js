@@ -22,10 +22,8 @@ module.exports = function(sequelize, DataTypes) {
           through: 'question_course',
           foreignKey: 'question_id'
         });
-        models.question.hasMany(models.answer);
       }
-    },
-    timestamps: false
+    }
   });
   return question;
 };

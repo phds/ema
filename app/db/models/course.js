@@ -26,7 +26,6 @@ module.exports = function(sequelize, DataTypes) {
           as: 'professor',
           foreignKey: 'professor_id'
         });
-        models.course.hasOne(models.answer);
       }
     }
   });

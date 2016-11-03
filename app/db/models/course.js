@@ -7,7 +7,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     code: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
+      unique: true
     }
   }, {
     classMethods: {
@@ -21,7 +22,10 @@ module.exports = function(sequelize, DataTypes) {
           through: 'question_course',
           foreignKey: 'course_id'
         });
-        models.course.belongsTo(models.user, {as: 'professor'});
+        models.course.belongsTo(models.user, {
+          as: 'professor',
+          foreignKey: 'professor_id'
+        });
         models.course.hasOne(models.answer);
       }
     }

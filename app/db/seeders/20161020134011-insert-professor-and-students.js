@@ -305,12 +305,28 @@ var student_courses = [
   {
     course_id: 1,
     student_id: 2,
+    answered: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     course_id: 1,
     student_id: 3,
+    answered: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    course_id: 2,
+    student_id: 2,
+    answered: true,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    course_id: 2,
+    student_id: 3,
+    answered: true,
     createdAt: new Date(),
     updatedAt: new Date()
   }

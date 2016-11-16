@@ -3,3 +3,5 @@ npm-debug.log
 .DS_Store
 .jshintrc
 .jshintignore
+apiInfo.js
+test.js

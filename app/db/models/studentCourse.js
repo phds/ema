@@ -15,6 +15,9 @@ module.exports = function(sequelize, DataTypes) {
       model: models.course,
       key: 'id',
       field: 'course_id'
+    },
+    answered: { // if the questionnarie has been answered
+      type: DataTypes.BOOLEAN
     }
   }, {
     freezeTableName: true

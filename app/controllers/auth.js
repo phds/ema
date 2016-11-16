@@ -1,21 +1,29 @@
 'use strict';
 
-var user = require('..db/models').user;
+var user = require('../db/models').user;
 var jwtToken = require('../util/jwtToken');
 
 module.exports.generateToken = (req, res) => {
   var email = req.body.email;
   var password = req.body.password;
 
-  user.findOne({email: email}).then((user) => {
+  if(!email || !password){
+    return res.json({error: 'Missing email and/or password from request body'});
+  }
+
+  user.findOne({
+    where:{
+      email: email
+    }
+  }).then((user) => {
+    console.log(user);
     user.comparePassword(password, (err, isMatch) => {
       if(err) {
-        return res.json({error: err.name});
+        return res.json({error: err});
       }
       if(isMatch){
         var token = jwtToken.issueToken({id:user.id});
-        console.log(token);
-        res.json({token: token});
+        return res.json({token: token});
       }
       else{
         res.json({error: 'Invalid email/password combination'});
@@ -29,13 +37,21 @@ module.exports.generateToken = (req, res) => {
 module.exports.isAuthenticated = (req, res, next) => {
 
   var userId = jwtToken.verifyToken(req.header('token'), (err, payload) => {
-    if(err) return res.json({error: 'Invalid token!'});
+    if(err) {
+      res.status(401).json({error: 'Invalid authentication token!'});
+      return req.end();
+    };
 
-    user.findOne({id: userId}).then((user) => {
+    user.findOne({
+      where: {
+        id: payload.id
+      }
+    }).then((user) => {
       req.user = user;
-      return next();
+      next();
     }).catch((err) => {
-      return res.json({error: 'Authentication failed!'});
+      res.status(401).json({error: 'Authentication failed!'});
+      return req.end();
     });
   });
 };

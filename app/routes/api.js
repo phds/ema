@@ -3,10 +3,10 @@
 var express = require('express');
 var router  = express.Router();
 
-var studentController = require('../controllers/student');
-var authController    = require('../controllers/auth');
-var overview          = require('../controllers/overview');
-
+var studentController  = require('../controllers/student');
+var authController     = require('../controllers/auth');
+var overviewController = require('../controllers/overview');
+var courseController   = require('../controllers/course');
 
 router.route('/student')
   .post(studentController.postStudent);
@@ -16,6 +16,19 @@ router.route('/login')
 
 router.route('/overview')
   .all(authController.isAuthenticated)
-  .get(overview.getOverview);
+  .get(overviewController.getOverview);
+
+router.route('/course')
+  .all(authController.isAuthenticated)
+  .post(courseController.createCourse);
+
+router.route('/course/:course_id/list')
+  .all(authController.isAuthenticated)
+  .get(courseController.listCourse);
+
+router.route('/course/answer')
+  .all(authController.isAuthenticated)
+  .post(courseController.answerCourse);
+
 
 module.exports = router;

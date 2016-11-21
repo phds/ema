@@ -9,6 +9,10 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true
+    },
+    prompt: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   }, {
     classMethods: {
@@ -20,6 +24,9 @@ module.exports = function(sequelize, DataTypes) {
         });
         models.course.belongsToMany(models.question, {
           through: 'question_course',
+          foreignKey: 'course_id'
+        });
+        models.course.hasMany(models.question_course, {
           foreignKey: 'course_id'
         });
         models.course.belongsTo(models.user, {

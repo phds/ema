@@ -11,7 +11,8 @@ module.exports = function(sequelize, DataTypes) {
     },
     questionOrder: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: true,
+      field: 'question_order'
     }
 
   }, {
@@ -20,6 +21,9 @@ module.exports = function(sequelize, DataTypes) {
         // associations can be defined here
         models.question.belongsToMany(models.course, {
           through: 'question_course',
+          foreignKey: 'question_id'
+        });
+        models.question.hasMany(models.question_course, {
           foreignKey: 'question_id'
         });
       }

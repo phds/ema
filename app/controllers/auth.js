@@ -16,7 +16,6 @@ module.exports.generateToken = (req, res) => {
       email: email
     }
   }).then((user) => {
-    console.log(user);
     user.comparePassword(password, (err, isMatch) => {
       if(err) {
         return res.json({error: err});

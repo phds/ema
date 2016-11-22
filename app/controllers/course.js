@@ -1,5 +1,7 @@
 var models = require('../db/models');
 
+//TODO testar caso de erro
+
 module.exports.createCourse = (req, res) => {
   var user = req.user;
 
@@ -34,7 +36,6 @@ module.exports.createCourse = (req, res) => {
 
 module.exports.listCourse = (req, res) => {
 
-
   var responseObject;
   models.question_course.findAll({
     where: {
@@ -60,8 +61,13 @@ module.exports.listCourse = (req, res) => {
         questionId: qs[i].id
       });
     }
-    
+
     res.json(responseObject);
+  }).catch ((err) => {
+    res.status(403).json({
+      error: 'couldn\'t list the course!',
+      stacktrace: err
+    });
   });
 };
 
@@ -72,5 +78,31 @@ module.exports.answerCourse = (req, res) => {
     return res.status(403).json({error: 'User cannot be a professor when posting response'});
   }
 
+  var answers = req.body.answers;
 
+  var formattedAnswers = [];
+  for(i = 0; i < answers.length; i++) {
+    formattedAnswers.push({
+      rating: answers[i].rating,
+      question_course_id: answers[i].questionId,
+      student_id: user.id,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+  }
+
+  models.answer.bulkCreate(formattedAnswers).then(() => {
+    models.student_course.findOne({
+      where: {
+        course_id: req.params.course_id,
+        student_id: user.id
+      }
+    }).then((sc) => {
+      return sc.update({answered: true});
+    }).then(() => {
+      res.json({
+        message: "answers added successfully!"
+      });
+    });
+  });
 };

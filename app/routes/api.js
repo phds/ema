@@ -26,7 +26,7 @@ router.route('/course/:course_id/list')
   .all(authController.isAuthenticated)
   .get(courseController.listCourse);
 
-router.route('/course/answer')
+router.route('/course/:course_id/answer')
   .all(authController.isAuthenticated)
   .post(courseController.answerCourse);
 

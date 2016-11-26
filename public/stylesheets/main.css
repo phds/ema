@@ -241,3 +241,7 @@ html, body {
         margin-bottom: 1rem;
     }
 }
+
+.hide {
+  display: none;
+}

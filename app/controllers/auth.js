@@ -8,7 +8,7 @@ module.exports.generateToken = (req, res) => {
   var password = req.body.password;
 
   if(!email || !password){
-    return res.json({error: 'Missing email and/or password from request body'});
+    return res.status(400).json({error: 'Missing email and/or password from request body'});
   }
 
   user.findOne({
@@ -25,11 +25,11 @@ module.exports.generateToken = (req, res) => {
         return res.json({token: token});
       }
       else{
-        res.json({error: 'Invalid email/password combination'});
+        res.status(400).json({error: 'Invalid email/password combination'});
       }
     });
   }).catch((err) => {
-    res.json({error: 'Invalid email/password combination'});
+    res.status(400).json({error: 'Invalid email/password combination'});
   });
 };
 

@@ -32,12 +32,11 @@ function sendLoginData(){
       if (request.status >= 200 && request.status < 400) {
         // Success!
         var data = JSON.parse(request.responseText);
-        console.log(JSON.stringify(data, null, 2));
         localStorage.accessToken = data.token;
+        window.location.href = "/overview/"
       } else {
         // We reached our target server, but it returned an error
         var response = JSON.parse(request.response);
-        console.log(response)
         showAlert(response.error);
       }
     };

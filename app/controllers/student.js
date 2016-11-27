@@ -3,6 +3,7 @@
 var user = require('../db/models').user;
 
 module.exports.postStudent = (req, res) => {
+  console.log('cheguei')
   user.create({
     name: req.body.name,
     email: req.body.email,
@@ -15,10 +16,11 @@ module.exports.postStudent = (req, res) => {
   }).then((user) => {
     res.json({
       message: 'User ' + user.name + ' created with success!',
-      password: user.password
+      password: user.password,
+      token: user.getAuthToken()
     });
+    //TODO:consider returning the token from here
   }).catch((err) =>{
-    //TODO: send clearer messages for specific errors
-    res.status(500).json({error: err.errors[0].message});
+    res.status(400).json({error: 'Email already in use!'});
   });
 };

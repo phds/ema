@@ -1,6 +1,7 @@
 'use strict';
 
 var bcrypt = require('bcrypt');
+var jwtToken = require('../../util/jwtToken');
 
 var hashPassword = function(user, options){
   var hash = bcrypt.hashSync(user.password, 10);
@@ -51,6 +52,9 @@ module.exports = function(sequelize, DataTypes) {
             }
             cb(null, isMatch);
         });
+      },
+      getAuthToken: function (){
+        return jwtToken.issueToken({id:this.id});
       }
     },
     hooks: {

@@ -197,7 +197,7 @@ var questions = [
     id: 23,
     text: "Venho à disciplina porque enquanto estiver estudando não preciso trabalhar.",
     factor: 3,
-    question_order: 29,
+    question_order: 28,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -205,7 +205,7 @@ var questions = [
     id: 24,
     text: "Ver meus amigos é o principal motivo pelo qual venho à disciplina.",
     factor: 3,
-    question_order: 30,
+    question_order: 29,
     createdAt: new Date(),
     updatedAt: new Date()
   },

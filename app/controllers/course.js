@@ -33,7 +33,8 @@ module.exports.createCourse = (req, res) => {
     });
   });
 };
-//TODO: testar o addCourse
+
+
 module.exports.addCourse = (req, res) => {
   var user = req.user;
 
@@ -86,14 +87,13 @@ module.exports.listCourse = (req, res) => {
     for(var i = 0; i < qs.length; i++){
       responseObject.questions.push({
         text: qs[i].question.text,
-        questionOrder: qs[i].question.question_order,
+        questionOrder: qs[i].question.questionOrder,
         questionId: qs[i].id
       });
     }
-
     res.json(responseObject);
   }).catch ((err) => {
-    res.status(403).json({
+    res.status(400).json({
       error: 'couldn\'t list the course!',
       stacktrace: err
     });

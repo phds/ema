@@ -21,7 +21,9 @@ router.get('/register', (req, res, next) => {
 });
 
 router.get('/questions/:course_id', (req, res, next) => {
-
+  res.render('questions', {
+    course_id: req.params.course_id
+  });
 });
 
 module.exports = router;

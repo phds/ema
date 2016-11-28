@@ -10,8 +10,6 @@ module.exports.getOverview = (req, res) => {
     });
   }
 
-  console.log(user);
-
   models.student_course.findAll({
     where:{
       student_id: user.id
@@ -40,7 +38,6 @@ module.exports.getOverview = (req, res) => {
           });
 
           if(j == sc.length){
-            console.log(response);
             return res.json(response);
           }
       });

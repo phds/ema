@@ -7,9 +7,9 @@
 
     <title>Informações Pessoais</title>
 
-    <link rel="stylesheet" href="stylesheets/bootstrap-4/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/font-awesome.min.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/main.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-4/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/main.css" media="screen">
 </head>
 <body>
     <div class="line">
@@ -19,7 +19,7 @@
         <div class="line-red"></div>
     </div>
 
-    <div class="padding-top-md container box-shadow-grey full-height">
+    <div id="questionnarie" class="padding-top-md container box-shadow-grey full-height">
         <div class="custom-header margin-bottom-md">
             <h3>Questionário</h3>
             <div class="text-box">
@@ -27,17 +27,18 @@
             </div>
         </div>
 
-        <div class="row padding-bottom-sm padding-top-sm">
+        <div id="loading" class="">Loading Questions...</div>
+        <div class="question row padding-bottom-sm padding-top-sm">
             <div class="col-sm-2">
-                <h5 class="bottom-border text-xs-center">Questão 1</h5>
+                <h5 class="bottom-border text-xs-center">Questão <span class="question-number">1</span></h5>
             </div>
             <div class="col-sm-8">
-                <h5 class="text-box-inverse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem atque repudiandae debitis. Nihil enim iure minus omnis odit, quasi non.</h5>
+                <h5 class="text-box-inverse"><span class="question-text"></span></h5>
             </div>
             <div class="col-sm-2">
                 <p class="bottom-border text-xs-center">Resposta</p>
-                <select class="custom-select col-xs-12">
-                    <option selected>&mdash;</option>
+                <select class="answer custom-select col-xs-12">
+                    <option selected>-</option>
                     <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
@@ -49,77 +50,13 @@
                 </select>
             </div>
         </div><hr>
-
-        <div class="row padding-bottom-sm padding-top-sm">
-            <div class="col-sm-2">
-                <h5 class="bottom-border text-xs-center">Questão 2</h5>
-            </div>
-            <div class="col-sm-8">
-                <h5 class="text-box-inverse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem atque repudiandae debitis. Nihil enim iure minus omnis odit, quasi non. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, repellat.</h5>
-            </div>
-            <div class="col-sm-2">
-                <p class="bottom-border text-xs-center">Resposta</p>
-                <select class="custom-select col-xs-12">
-                    <option selected>&mdash;</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                </select>
-            </div>
-        </div><hr>
-
-        <div class="row padding-bottom-sm padding-top-sm">
-            <div class="col-sm-2">
-                <h5 class="bottom-border text-xs-center">Questão 3</h5>
-            </div>
-            <div class="col-sm-8">
-                <h5 class="text-box-inverse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem atque repudiandae debitis. Nihil enim iure minus omnis odit, quasi non. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, repellat.</h5>
-            </div>
-            <div class="col-sm-2">
-                <p class="bottom-border text-xs-center">Resposta</p>
-                <select class="custom-select col-xs-12">
-                    <option selected>&mdash;</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                </select>
-            </div>
-        </div><hr>
-
-        <div class="row padding-bottom-sm padding-top-sm">
-            <div class="col-sm-2">
-                <h5 class="bottom-border text-xs-center">Questão 4</h5>
-            </div>
-            <div class="col-sm-8">
-                <h5 class="text-box-inverse">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem atque repudiandae debitis. Nihil enim iure minus omnis odit, quasi non.</h5>
-            </div>
-            <div class="col-sm-2">
-                <p class="bottom-border text-xs-center">Resposta</p>
-                <select class="custom-select col-xs-12">
-                    <option selected>&mdash;</option>
-                    <option value="0">0</option>
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                    <option value="6">6</option>
-                    <option value="7">7</option>
-                </select>
-            </div>
-        </div>
     </div>
-
-    <script src="scripts/bootstrap-4/bootstrap.min.js" charset="utf-8"></script>
+    <script src="/scripts/jquery.js" charset="utf-8"></script>
+    <script src="/scripts/tether.js" charset="utf-8"></script>
+    <script src="/scripts/bootstrap-4/bootstrap.min.js" charset="utf-8"></script>
+    <script src="/scripts/questions.js" charset="utf-8"></script>
+    <script type="text/javascript">
+      loadQuestions({{course_id}});
+    </script>
 </body>
 </html>

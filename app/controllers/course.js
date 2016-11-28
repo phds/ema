@@ -33,6 +33,35 @@ module.exports.createCourse = (req, res) => {
     });
   });
 };
+//TODO: testar o addCourse
+module.exports.addCourse = (req, res) => {
+  var user = req.user;
+
+  if(user.isProfessor){
+    return res.status(403).json({error: 'User cannot create course as student'});
+  }
+
+  models.course.findOne({
+    where: {
+      code: req.body.code
+    }
+  }).then((course) => {
+    if(!course){
+      throw {error: 'Course not found!'};
+    }
+    return models.student_course.create({
+      student_id: user.id,
+      course_id: course.id,
+      answered: false
+    });
+  }).then((sc) => {
+    res.json({
+      message: 'Course successfully added!'
+    });
+  }).catch((err) => {
+    res.status(400).json(err);
+  });
+}
 
 module.exports.listCourse = (req, res) => {
 

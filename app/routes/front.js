@@ -20,4 +20,8 @@ router.get('/register', (req, res, next) => {
   res.render('register');
 });
 
+router.get('/questions/:course_id', (req, res, next) => {
+
+});
+
 module.exports = router;

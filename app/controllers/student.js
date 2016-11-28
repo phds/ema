@@ -10,7 +10,6 @@ module.exports.postStudent = (req, res) => {
     password: req.body.password,
     isProfessor: false,
     gender: req.body.gender ? req.body.gender : null,
-    birthday: null, //TODO: set birthday
     undergrad: req.body.undergrad ? req.body.undergrad : null,
     undergradStartDate: req.body.undergradStartDate ? req.body.undergradStartDate : null
   }).then((user) => {

@@ -5,7 +5,7 @@ module.exports.getOverview = (req, res) => {
 
   var user = req.user; //user straight from the database
   if(!!user.isProfessor){
-    return res.json({
+    return res.status(400).json({
       error: 'logged used is not a student!'
     });
   }

@@ -22,6 +22,10 @@ router.route('/course')
   .all(authController.isAuthenticated)
   .post(courseController.createCourse);
 
+router.route('/course/add')
+  .all(authController.isAuthenticated)
+  .post(courseController.addCourse);
+
 router.route('/course/:course_id/list')
   .all(authController.isAuthenticated)
   .get(courseController.listCourse);

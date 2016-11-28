@@ -38,7 +38,6 @@ module.exports.isAuthenticated = (req, res, next) => {
   var userId = jwtToken.verifyToken(req.header('token'), (err, payload) => {
     if(err) {
       res.status(401).json({error: 'Invalid authentication token!'});
-      return req.end();
     };
 
     user.findOne({

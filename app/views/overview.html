@@ -7,9 +7,9 @@
 
     <title>Informações Pessoais</title>
 
-    <link rel="stylesheet" href="stylesheets/bootstrap-4/bootstrap.min.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/font-awesome.min.css" media="screen">
-    <link rel="stylesheet" href="stylesheets/main.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/bootstrap-4/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css" media="screen">
+    <link rel="stylesheet" href="/stylesheets/main.css" media="screen">
 </head>
 <body>
     <div class="line">
@@ -23,14 +23,14 @@
         <div class="custom-header margin-bottom-md">
             <h3>Visão Geral</h3>
             <div class="text-box">
-                <span>Adicione um novo questionário ou visualize os existentes</span>
+                <span>Adicione um novo questionário ou responda os pendentes.</span>
             </div>
         </div>
         <div class="row">
             <!-- Add code column -->
             <div class="col-sm-4">
                 <h3 class="margin-bottom-md text-box">Adicionar</h3>
-                <form method="post">
+                <form onsubmit="addNewQuestionnarie(); return false;" method="post">
                     <div class="form-group">
                         <input class="form-control" type="text" id="code" name="code" placeholder="Coloque o código aqui">
                     </div>
@@ -42,24 +42,13 @@
             <!-- List column -->
             <div class="col-sm-8 left-border">
                 <h3 class="margin-bottom-md text-box">Adicionados</h3>
-                <div class="list-group">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <span class="tag tag-success tag-pill pull-xs-right">NOVO</span>
-                        Lorem ipsum dolor sit.
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <span class="tag tag-default tag-pill pull-xs-right">RESPONDIDO</span>
-                        Lorem ipsum dolor.
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <span class="tag tag-default tag-pill pull-xs-right">RESPONDIDO</span>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil, molestias.
-                    </a>
+                <div class="list-group questionnaries">
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="scripts/bootstrap-4/bootstrap.min.js" charset="utf-8"></script>
+    <script src="/scripts/bootstrap-4/bootstrap.min.js" charset="utf-8"></script>
+    <script src="/scripts/overview.js" charset="utf-8"></script>
 </body>
 </html>

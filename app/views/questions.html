@@ -21,9 +21,9 @@
 
     <div id="questionnarie" class="padding-top-md container box-shadow-grey full-height">
         <div class="custom-header margin-bottom-md">
-            <h3>Questionário</h3>
+            <h3><span class="question-prompt">Questão</span></h3>
             <div class="text-box">
-                <span>Responda as questões marcando de 0 a 7</span>
+                <span>Responda a pergunta marcando de 1 a 7 as frases abaixo, sendo 1 nenhuma e 7 total correspondência com a afirmação.</span>
             </div>
         </div>
 
@@ -39,7 +39,6 @@
                 <p class="bottom-border text-xs-center">Resposta</p>
                 <select class="answer custom-select col-xs-12">
                     <option selected>-</option>
-                    <option value="0">0</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
@@ -50,6 +49,9 @@
                 </select>
             </div>
         </div><hr>
+        <div id="submit" class="col-xs-12 padding-top-sm padding-bottom-sm">
+          <button onclick="sendAnswers()" class="btn btn-secondary btn-block btn-outline-success">Enviar Respostas!</button>
+        </div>
     </div>
     <script src="/scripts/jquery.js" charset="utf-8"></script>
     <script src="/scripts/tether.js" charset="utf-8"></script>

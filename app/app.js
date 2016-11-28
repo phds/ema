@@ -18,7 +18,11 @@ var app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
-app.engine('.html', exphbs({extname: '.html'}));
+app.engine('.html', exphbs({
+  extname: '.html',
+  defaultLayout: path.join(__dirname, 'views', 'layouts', 'main.html'),
+  partialsDir: path.join(__dirname, 'views', 'partials')
+}));
 app.set('view engine', '.html');
 
 // uncomment after placing your favicon in /public
@@ -47,7 +51,8 @@ if (app.get('env') === 'development') {
     res.status(err.status || 500);
     res.render('404', {
       message: err.message,
-      error: err
+      error: err,
+      layout: false
     });
   });
 }
@@ -58,7 +63,8 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('404', {
     message: err.message,
-    error: {}
+    error: {},
+    layout: false
   });
 });
 

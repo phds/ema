@@ -99,7 +99,7 @@ var questions = [
   },
   {
     id: 11,
-    text: "Venho a disciplina porque acho que a frequencia deve ser obrigatória.",
+    text: "Venho a disciplina porque acho que a frequência deve ser obrigatória.",
     factor: 2,
     question_order: 2,
     createdAt: new Date(),
@@ -131,7 +131,7 @@ var questions = [
   },
   {
     id: 15,
-    text: "Caso a frequencia não fosse obrigatória, poucos alunos assistiriam às aulas.",
+    text: "Caso a frequência não fosse obrigatória, poucos alunos assistiriam às aulas.",
     factor: 2,
     question_order: 25,
     createdAt: new Date(),
@@ -219,7 +219,7 @@ var questions = [
   },
   {
     id: 26,
-    text: "Venho à disciplina porque a frequencia nas aulas é necessaria para a aprendizagem.",
+    text: "Venho à disciplina porque a frequência nas aulas é necessaria para a aprendizagem.",
     factor: 5,
     question_order: 24,
     createdAt: new Date(),

@@ -23,6 +23,10 @@ function loadQuestions(courseId){
       var questionnarieDiv = document.getElementById('questionnarie');
       var questionDiv = document.getElementsByClassName('question')[0].cloneNode(true);
       document.getElementsByClassName('question')[0].remove();
+      questionnarieDiv.getElementsByClassName('question-prompt')[0].innerHTML = data.prompt;
+
+      var submitButton = document.getElementById('submit').cloneNode(true);
+      document.getElementById('submit').remove();
 
       for(var i = 0; i < data.questions.length; i++){
         var newQuestion = questionDiv.cloneNode(true);
@@ -32,6 +36,9 @@ function loadQuestions(courseId){
         questionnarieDiv.appendChild(newQuestion);
         questionnarieDiv.appendChild(document.createElement('hr'));
       }
+
+      questionnarieDiv.appendChild(submitButton)
+
     }
     else{
       console.log(request.responseText);
@@ -56,8 +63,8 @@ function sendAnswers(){
       return;
     }
     requestBody.answers.push({
-      questionId: questions[i].getAttribute('questionId'),
-      rating: rating
+      questionId: parseInt(questions[i].getAttribute('questionId')),
+      rating: parseInt(rating)
     });
   }
 

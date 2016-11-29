@@ -256,9 +256,55 @@ var users = [
     id: 1,
     name: "Cristiano Araujo",
     email: "cca2@cin.ufpe.br",
-    password: bcrypt.hashSync('password', 10),
+    password: bcrypt.hashSync('123', 10),
     isProfessor: true,
     createdAt: new Date(),
     updatedAt: new Date()
   },
 ]
+
+module.exports = {
+  up: function (queryInterface, Sequelize) {
+    /*
+      Add altering commands here.
+      Return a promise to correctly handle asynchronicity.
+
+      Example:
+      return queryInterface.bulkInsert('Person', [{
+        name: 'John Doe',
+        isBetaMember: false
+      }], {});
+    */
+
+    var finalPromise = new Promise(function(resolve, reject){
+      queryInterface.bulkDelete('users')
+        .then(() => queryInterface.bulkDelete('questions'))
+        .then(() => queryInterface.bulkInsert('questions', questions))
+        .then(() => queryInterface.bulkInsert('users', users))
+        .then(resolve)
+        .catch((err)=>{
+          console.log(err);
+        });
+    });
+
+    return finalPromise;
+
+  },
+
+  down: function (queryInterface, Sequelize) {
+    /*
+      Add reverting commands here.
+      Return a promise to correctly handle asynchronicity.
+
+      Example:
+      return queryInterface.bulkDelete('Person', null, {});
+    */
+
+    var promises = [
+      queryInterface.bulkDelete('users'),
+      queryInterface.bulkDelete('questions'),
+    ]
+    return Promise.all(promises);
+
+  }
+};

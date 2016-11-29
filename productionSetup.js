@@ -39,7 +39,7 @@ function seed(){
 }
 
 function setup(){
-  return require('app/db/models')
+  return require('./app/db/models')
     .sequelize.sync({force:true})
     .then(() => {
       console.log('db up!');

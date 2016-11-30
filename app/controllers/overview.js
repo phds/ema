@@ -44,3 +44,30 @@ module.exports.getOverview = (req, res) => {
     }
   })
 };
+
+module.exports.getProfessorOverview = function(req, res) {
+  var user = req.user;
+
+  if(!user.isProfessor){
+    return res.status(400).json({
+      error: 'logged user is not a professor'
+    });
+  }
+
+  models.course.findAll({
+    where:{
+      professor_id: user.id
+    }
+  }).then((courses)=> {
+    var response = [];
+
+    courses.forEach((course) => {
+      response.push({
+        courseName: course.name,
+        courseId: course.id
+      });
+    });
+
+    return res.json(response);
+  });
+}

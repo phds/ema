@@ -33,7 +33,12 @@ function sendLoginData(){
         // Success!
         var data = JSON.parse(request.responseText);
         localStorage.accessToken = data.token;
-        window.location.href = "/overview/"
+        if(data.isProfessor){
+          window.location.href = '/professor/overview/';
+        }
+        else{
+          window.location.href = "/overview/";
+        }
       } else {
         // We reached our target server, but it returned an error
         var response = JSON.parse(request.response);

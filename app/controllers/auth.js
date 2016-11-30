@@ -22,7 +22,10 @@ module.exports.generateToken = (req, res) => {
       }
       if(isMatch){
         var token = jwtToken.issueToken({id:user.id});
-        return res.json({token: token});
+        return res.json({
+          token: token,
+          isProfessor: user.isProfessor
+        });
       }
       else{
         res.status(400).json({error: 'Invalid email/password combination'});

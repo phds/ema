@@ -3,7 +3,6 @@
 var user = require('../db/models').user;
 
 module.exports.postStudent = (req, res) => {
-  console.log('cheguei')
   user.create({
     name: req.body.name,
     email: req.body.email,

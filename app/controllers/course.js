@@ -12,6 +12,7 @@ module.exports.createCourse = (req, res) => {
   models.course.create({
     name: req.body.name,
     code: req.body.code,
+    prompt: req.body.prompt,
     professor_id: user.id
   }).then((course) => {
     var objectsToInsert = [];

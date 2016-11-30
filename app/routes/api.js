@@ -18,6 +18,10 @@ router.route('/overview')
   .all(authController.isAuthenticated)
   .get(overviewController.getOverview);
 
+router.route('/professor-overview')
+  .all(authController.isAuthenticated)
+  .get(overviewController.getProfessorOverview);
+
 router.route('/course')
   .all(authController.isAuthenticated)
   .post(courseController.createCourse);

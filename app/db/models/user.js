@@ -3,7 +3,7 @@
 var bcrypt = require('bcrypt');
 var jwtToken = require('../../util/jwtToken');
 
-var hashPassword = function(user, options){
+var hashPassword = function(user){
   var hash = bcrypt.hashSync(user.password, 10);
   user.password = hash;
 }
@@ -61,8 +61,9 @@ module.exports = function(sequelize, DataTypes) {
       beforeCreate: hashPassword,
       beforeUpdate: hashPassword,
       beforeInsert: hashPassword,
-      beforeBulkCreate: hashPassword,
-      beforeBulkInsert: hashPassword
+      beforeBulkCreate: function(users){
+        users.forEach((user) => {hashPassword(user)});
+      }
     },
     classMethods:{
       associate: function(models) {

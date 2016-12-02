@@ -15,7 +15,9 @@ document.addEventListener('DOMContentLoaded', function(event){
 });
 
 function createNewCourse(){
-  var courseName = document.querySelector('#code').value;
+  var courseName = document.querySelector('#inputName').value;
+  var courseCode = document.querySelector('#inputCode').value;
+  var coursePrompt = document.querySelector('#inputPrompt').value;
 
   var requestBody = {
     name: courseName,
@@ -23,16 +25,17 @@ function createNewCourse(){
     prompt: coursePrompt
   }
   var request = new XMLHttpRequest();
-  request.open('POST', '/api/course/add', true);
+  request.open('POST', '/api/course/', true);
   request.setRequestHeader('token', localStorage.accessToken);
   request.setRequestHeader('Content-Type', 'application/json; charset=UTF-8');
   request.onload = function(){
     if (request.status >= 200 && request.status < 400) {
+      console.log(request.responseText);
       refreshCoursesList();
     }
     else{
       console.log(request.responseText);
-      showWarning(document.querySelector('#code'), 'Código inválido!');
+      //showWarning(document.querySelector('#code'), 'Código inválido!');
     }
   }
   request.send(JSON.stringify(requestBody));

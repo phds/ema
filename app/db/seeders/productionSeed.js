@@ -263,6 +263,42 @@ var users = [
   },
 ]
 
+var courses = [
+  {
+    id: 1,
+    name: 'Projetão 2016.2',
+    code: 'PROJ20162',
+    prompt: 'Por que venho a aula de projetão?',
+    professor_id: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+  },
+  {
+    id: 2,
+    name: 'Empreendimentos 2016.2',
+    code: 'EMPR20162',
+    prompt: 'Por que venho a aula de Empreendimentos?',
+    professor_id: 1,
+    createdAt: new Date(),
+    updatedAt: new Date()
+
+  }
+];
+
+var question_course = [];
+var id = 1;
+for(var j = 1; j <= 2; j++){
+  for(var i = 1; i <= 29; i++){
+    question_course.push({
+      id: id++,
+      question_id: i,
+      course_id: j,
+      createdAt: new Date(),
+      updatedAt: new Date()
+    });
+  }
+}
+
 module.exports = {
   up: function (queryInterface, Sequelize) {
     /*
@@ -279,8 +315,16 @@ module.exports = {
     var finalPromise = new Promise(function(resolve, reject){
       queryInterface.bulkDelete('users')
         .then(() => queryInterface.bulkDelete('questions'))
+        .then(() => queryInterface.bulkDelete('courses'))
+        .then(() => queryInterface.bulkDelete('question_course'))
         .then(() => queryInterface.bulkInsert('questions', questions))
         .then(() => queryInterface.bulkInsert('users', users))
+        .then(() => queryInterface.bulkInsert('courses', courses))
+        .then(() => queryInterface.bulkInsert('question_course', question_course))
+        .then(() => models.sequelize.query("ALTER SEQUENCE questions_id_seq RESTART WITH 30"))
+        .then(() => models.sequelize.query("ALTER SEQUENCE users_id_seq RESTART WITH 2"))
+        .then(() => models.sequelize.query("ALTER SEQUENCE courses_id_seq RESTART WITH 3"))
+        .then(() => models.sequelize.query("ALTER SEQUENCE question_course_id_seq RESTART WITH 59"))
         .then(resolve)
         .catch((err)=>{
           console.log(err);

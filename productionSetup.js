@@ -1,7 +1,7 @@
 var exec = require('child_process').exec;
 var cmd = 'prince -v builds/pdf/book.html -o builds/pdf/book.pdf';
 
-var helpText = "Run the script with one of the commands: seed, help";
+var helpText = "Run the script with one of the commands: setup, help";
 
 if (process.argv.length !== 3){
   console.log(helpText);
@@ -22,20 +22,10 @@ switch(process.argv[2]) {
     setup();
   break;
 
-  case 'all':
-
-    setup().then(()=> {
-      seed();
-    });
-
+  default:
+    console.log(helpText);
+    process.exit();
   break;
-}
-
-function seed(){
-  // var exec = require('child_process').exec;
-  // var cmd = 'node_modules/sequelize-cli/bin/sequelize db:seed --seed productionSeed.js';
-  //
-  //
 }
 
 function setup(){
@@ -43,6 +33,7 @@ function setup(){
     .sequelize.sync({force:true})
     .then(() => {
       console.log('db up!');
+      process.exit();
     });
 }
 //

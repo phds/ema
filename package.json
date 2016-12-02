@@ -15,7 +15,7 @@
   "homepage": "https://github.com/phds/ema#readme",
   "scripts": {
     "setup": "node productionSetup setup",
-    "seed": "node_modules/sequelize-cli/bin/sequelize db:seed --seed productionSeed.js",
+    "seed": "node app/db/seeders/independentSeed.js",
     "start": "nodemon ./app/bin/www"
   },
   "dependencies": {

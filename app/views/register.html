@@ -5,7 +5,7 @@
       <span>Por favor, preencha todas as informações abaixo</span>
     </div>
   </div>
-  <form class="box" onsubmit="submitNewUser(); return false;" method="POST">
+  <form class="box" onsubmit="event.preventDefault(); submitNewUser();" method="POST">
     <div class="form-group row padding-top-md">
       <label for="inputName" class="col-sm-2 col-form-label text-xs-right text">Nome</label>
       <div class="col-sm-8">
@@ -69,3 +69,4 @@
     </div>
   </form>
 </div>
+<script src="/scripts/register.js" charset="utf-8"></script>

@@ -29,7 +29,7 @@ router.route('/course')
   .all(authController.isAuthenticated)
   .post(courseController.createCourse);
 
-router.route('/course/add')
+router.route('/course/add') //talvez isso deva ir pra studentController
   .all(authController.isAuthenticated)
   .post(courseController.addCourse);
 

@@ -14,11 +14,10 @@ module.exports.postStudent = (req, res) => {
   }).then((user) => {
     res.json({
       message: 'User ' + user.name + ' created with success!',
-      password: user.password,
       token: user.getAuthToken()
     });
-    //TODO:consider returning the token from here
   }).catch((err) =>{
-    res.status(400).json({error: 'Email already in use!'});
+
+    res.status(400).json({error: 'Email already in use!', stacktrace:err});
   });
 };

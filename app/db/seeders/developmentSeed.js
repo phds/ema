@@ -350,7 +350,7 @@ for(var j = 1; j <= 2; j++){
 }
 
 var answers = [];
-  for(var s = 1; s <= 2; s++){
+  for(var s = 2; s <= 3; s++){
   for(var qs = 1; qs <= question_course.length; qs++){
     answers.push({
       rating: Math.floor(Math.random() * 7) + 1,

@@ -3,8 +3,6 @@
 var express = require('express');
 var router  = express.Router();
 
-//TODO: Marketing
-
 router.get('/', (req, res, next) => {
   res.render('login', {
     title: 'Homepage'
@@ -31,9 +29,15 @@ router.get('/questions/:course_id', (req, res, next) => {
 });
 
 router.get('/professor/overview/', (req, res, next) => {
-  console.log('djadogfs')
   res.render('professor-overview', {
     title: 'Overview'
+  });
+});
+
+router.get('/course/:course_id', (req, res) => {
+  res.render('course', {
+    course_id: req.params.course_id,
+    title: 'Detalhes do curso'
   });
 });
 

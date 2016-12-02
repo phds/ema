@@ -136,3 +136,7 @@ module.exports.answerCourse = (req, res) => {
     });
   });
 };
+
+//gets all the answers
+module.exports.detailCourse = (req, res) => {
+}

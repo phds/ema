@@ -8,6 +8,9 @@ var authController     = require('../controllers/auth');
 var overviewController = require('../controllers/overview');
 var courseController   = require('../controllers/course');
 
+//TODO: adicionar authController.isProfessor e authController.isStudent
+
+
 router.route('/student')
   .post(studentController.postStudent);
 
@@ -38,5 +41,8 @@ router.route('/course/:course_id/answer')
   .all(authController.isAuthenticated)
   .post(courseController.answerCourse);
 
+router.route('/course/:course_id/details')
+  .all(authController.isAuthenticated)
+  .get(courseController.detailCourse);
 
 module.exports = router;

@@ -1,4 +1,17 @@
 'use strict';
+
+/*
+factor enum:
+
+1 - Desmotivação
+2 - Regulação externa frequencia
+3 - Regulação externa social
+4 - Regulação introjetada
+5 - Regulação Identificada
+6 - Regulação Integrada
+7 - Regulação Intrínseca
+*/
+
 module.exports = function(sequelize, DataTypes) {
   var question = sequelize.define('question', {
     text: {
@@ -7,11 +20,11 @@ module.exports = function(sequelize, DataTypes) {
     },
     factor: {
       type: DataTypes.INTEGER,
-      allowNull: true
+      allowNull: false
     },
     questionOrder: {
       type: DataTypes.INTEGER,
-      allowNull: true,
+      allowNull: false,
       field: 'question_order'
     }
 

@@ -18,7 +18,7 @@ module.exports.generateToken = (req, res) => {
   }).then((user) => {
     user.comparePassword(password, (err, isMatch) => {
       if(err) {
-        return res.json({error: err});
+        return res.status(400).json({error: err});
       }
       if(isMatch){
         var token = jwtToken.issueToken({id:user.id});

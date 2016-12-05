@@ -1,5 +1,5 @@
 'use strict';
-var jStat = require('jStat').jStat;
+var jStat = require('jstat').jStat;
 var _     = require('underscore');
 module.exports = function(sequelize, DataTypes) {
   var answer = sequelize.define('answer', {

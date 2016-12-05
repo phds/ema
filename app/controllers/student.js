@@ -9,12 +9,13 @@ module.exports.postStudent = (req, res) => {
     password: req.body.password,
     isProfessor: false,
     gender: req.body.gender ? req.body.gender : null,
+    birthday: req.body.birthday ? req.body.birthday : null,
     undergrad: req.body.undergrad ? req.body.undergrad : null,
     undergradStartDate: req.body.undergradStartDate ? req.body.undergradStartDate : null
   }).then((user) => {
     res.json({
       message: 'User ' + user.name + ' created with success!',
-      token: user.getAuthToken()
+      token: user.getAuthToken(),
     });
   }).catch((err) =>{
 

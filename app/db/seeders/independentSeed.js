@@ -19,7 +19,7 @@ factor enum:
 var questions = [
   {
     id: 1,
-    text: "Sinceramente, eu não sei por que venho à disciplina",
+    text: "Sinceramente, eu não sei porque venho à disciplina",
     factor: 1,
     questionOrder: 1,
     createdAt: new Date(),
@@ -83,7 +83,7 @@ var questions = [
   },
   {
     id: 9,
-    text: "Por que estudar amplia os horizontes.",
+    text: "Porque estudar amplia os horizontes.",
     factor: 6,
     questionOrder: 26,
     createdAt: new Date(),
@@ -99,7 +99,7 @@ var questions = [
   },
   {
     id: 11,
-    text: "Venho a disciplina porque acho que a frequência deve ser obrigatória.",
+    text: "Venho à disciplina porque acho que a frequência deve ser obrigatória.",
     factor: 2,
     questionOrder: 2,
     createdAt: new Date(),
@@ -147,7 +147,7 @@ var questions = [
   },
   {
     id: 17,
-    text: "Venho por que é isso que esperam de mim.",
+    text: "Venho porque é isso que esperam de mim.",
     factor: 4,
     questionOrder: 8,
     createdAt: new Date(),
@@ -187,7 +187,7 @@ var questions = [
   },
   {
     id: 22,
-    text: "Venho à disciplina por para não ficar em casa.",
+    text: "Venho à disciplina para não ficar em casa.",
     factor: 3,
     questionOrder: 6,
     createdAt: new Date(),
@@ -211,7 +211,7 @@ var questions = [
   },
   {
     id: 25,
-    text: "Por que acho que a cobrança de presença é necessária para que os alunos levem a disciplina à sério.",
+    text: "Porque acho que a cobrança de presença é necessária para que os alunos levem a disciplina à sério.",
     factor: 5,
     questionOrder: 22,
     createdAt: new Date(),

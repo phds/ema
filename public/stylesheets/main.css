@@ -17,13 +17,23 @@ html, body {
 }
 
 #container {
-    background: #EA811D;
-    height: inherit;
+    height: 100%;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.vertical-align{
+  display: flex;
+  align-items: center;
+  height: inherit;
+}
+
+
+.bg-orange{
+  background: #EA811D;
 }
 
 .full-height {

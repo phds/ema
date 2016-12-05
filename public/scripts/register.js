@@ -55,7 +55,7 @@ function submitNewUser(){
     showWarning(el, "Por favor preencha a senha!");
     canSubmit = false;
   }
-  else if(el.value.length <= 6) {
+  else if(el.value.length < 6) {
     showWarning(el, "A senha deve ter pelo menos 6 caracteres!");
     canSubmit = false;
   }

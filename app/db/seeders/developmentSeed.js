@@ -15,13 +15,12 @@ factor enum:
 7 - Regulação Intrínseca
 
 */
-
 var questions = [
   {
     id: 1,
-    text: "Sinceramente, eu não sei por que venho à disciplina",
+    text: "Sinceramente, eu não sei porque venho à disciplina",
     factor: 1,
-    question_order: 1,
+    questionOrder: 1,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -29,7 +28,7 @@ var questions = [
     id: 2,
     text: "Eu realmente sinto que estou perdendo meu tempo na disciplina.",
     factor: 1,
-    question_order: 7,
+    questionOrder: 7,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -37,7 +36,7 @@ var questions = [
     id: 3,
     text: "Eu já tive boas razões para vir à disciplina, mas, agora, tenho dúvidas sobre continuar.",
     factor: 1,
-    question_order: 9,
+    questionOrder: 9,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -45,7 +44,7 @@ var questions = [
     id: 4,
     text: "Eu não vejo por que devo vir à disciplina.",
     factor: 1,
-    question_order: 13,
+    questionOrder: 13,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -53,7 +52,7 @@ var questions = [
     id: 5,
     text: "Eu não sei, eu não entendo o que estou fazendo na disciplina.",
     factor: 1,
-    question_order: 16,
+    questionOrder: 16,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -61,7 +60,7 @@ var questions = [
     id: 6,
     text: "Eu não vejo que diferença faz vir à disciplina.",
     factor: 1,
-    question_order: 19,
+    questionOrder: 19,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -69,7 +68,7 @@ var questions = [
     id: 7,
     text: "Porque educação é um privilégio.",
     factor: 6,
-    question_order: 12,
+    questionOrder: 12,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -77,15 +76,15 @@ var questions = [
     id: 8,
     text: "Porque o acesso ao conhecimento se dá na disciplina.",
     factor: 6,
-    question_order: 18,
+    questionOrder: 18,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     id: 9,
-    text: "Por que estudar amplia os horizontes.",
+    text: "Porque estudar amplia os horizontes.",
     factor: 6,
-    question_order: 26,
+    questionOrder: 26,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -93,15 +92,15 @@ var questions = [
     id: 10,
     text: "Venho à disciplina porque é isso que escolhi pra mim.",
     factor: 6,
-    question_order: 27,
+    questionOrder: 27,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     id: 11,
-    text: "Venho a disciplina porque acho que a frequência deve ser obrigatória.",
+    text: "Venho à disciplina porque acho que a frequência deve ser obrigatória.",
     factor: 2,
-    question_order: 2,
+    questionOrder: 2,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -109,7 +108,7 @@ var questions = [
     id: 12,
     text: "Venho à disciplina para não receber faltas.",
     factor: 2,
-    question_order: 3,
+    questionOrder: 3,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -117,7 +116,7 @@ var questions = [
     id: 13,
     text: "Venho à disciplina porque a presença é obrigatória.",
     factor: 2,
-    question_order: 11,
+    questionOrder: 11,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -125,7 +124,7 @@ var questions = [
     id: 14,
     text: "Venho à disciplina para conseguir a aprovação.",
     factor: 2,
-    question_order: 14,
+    questionOrder: 14,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -133,7 +132,7 @@ var questions = [
     id: 15,
     text: "Caso a frequência não fosse obrigatória, poucos alunos assistiriam às aulas.",
     factor: 2,
-    question_order: 25,
+    questionOrder: 25,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -141,15 +140,15 @@ var questions = [
     id: 16,
     text: "Venho à disciplina para provar a mim mesmo que sou capaz de completá-la.",
     factor: 4,
-    question_order: 5,
+    questionOrder: 5,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     id: 17,
-    text: "Venho por que é isso que esperam de mim.",
+    text: "Venho porque é isso que esperam de mim.",
     factor: 4,
-    question_order: 8,
+    questionOrder: 8,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -157,7 +156,7 @@ var questions = [
     id: 18,
     text: "Para mostrar a mim mesmo que sou uma pessoa inteligente.",
     factor: 4,
-    question_order: 10,
+    questionOrder: 10,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -165,7 +164,7 @@ var questions = [
     id: 19,
     text: "Venho à disciplina porque quando eu sou bem sucedido me sinto importante.",
     factor: 4,
-    question_order: 15,
+    questionOrder: 15,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -173,7 +172,7 @@ var questions = [
     id: 20,
     text: "Porque quero mostrar a mim mesmo que posso ser bem sucedido nos meus estudos.",
     factor: 4,
-    question_order: 20,
+    questionOrder: 20,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -181,15 +180,15 @@ var questions = [
     id: 21,
     text: "Quero evitar que as pessoas me vejam como um aluno relapso.",
     factor: 4,
-    question_order: 23,
+    questionOrder: 23,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     id: 22,
-    text: "Venho à disciplina por para não ficar em casa.",
+    text: "Venho à disciplina para não ficar em casa.",
     factor: 3,
-    question_order: 6,
+    questionOrder: 6,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -197,7 +196,7 @@ var questions = [
     id: 23,
     text: "Venho à disciplina porque enquanto estiver estudando não preciso trabalhar.",
     factor: 3,
-    question_order: 28,
+    questionOrder: 28,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -205,15 +204,15 @@ var questions = [
     id: 24,
     text: "Ver meus amigos é o principal motivo pelo qual venho à disciplina.",
     factor: 3,
-    question_order: 29,
+    questionOrder: 29,
     createdAt: new Date(),
     updatedAt: new Date()
   },
   {
     id: 25,
-    text: "Por que acho que a cobrança de presença é necessária para que os alunos levem a disciplina à sério.",
+    text: "Porque acho que a cobrança de presença é necessária para que os alunos levem a disciplina à sério.",
     factor: 5,
-    question_order: 22,
+    questionOrder: 22,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -221,7 +220,7 @@ var questions = [
     id: 26,
     text: "Venho à disciplina porque a frequência nas aulas é necessaria para a aprendizagem.",
     factor: 5,
-    question_order: 24,
+    questionOrder: 24,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -229,7 +228,7 @@ var questions = [
     id: 27,
     text: "Pelo prazer que tenho quando me envolvo em debates com pessoas interessantes.",
     factor: 7,
-    question_order: 4,
+    questionOrder: 4,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -237,7 +236,7 @@ var questions = [
     id: 28,
     text: "Porque pra mim a disciplina é um prazer.",
     factor: 7,
-    question_order: 17,
+    questionOrder: 17,
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -245,7 +244,7 @@ var questions = [
     id: 29,
     text: "Porque gosto muito de vir à disciplina.",
     factor: 7,
-    question_order: 21,
+    questionOrder: 21,
     createdAt: new Date(),
     updatedAt: new Date()
   }

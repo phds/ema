@@ -14,7 +14,6 @@ module.exports = function(sequelize, DataTypes) {
         models.answer.belongsTo(models.question_course, {foreignKey: 'question_course_id'});
         models.answer.belongsTo(models.user, {foreignKey: 'student_id'});
       },
-      //TODO: arrumar essas duas funcoes
       getStudentAverage: function (courseId, studentId){
         var meansByFactor = [];
         var query = 'select questions.factor as factor, answers.rating as rating from answers' +

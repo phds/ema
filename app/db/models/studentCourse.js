@@ -20,7 +20,17 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.BOOLEAN
     }
   }, {
-    freezeTableName: true
+    freezeTableName: true,
+    classMethods: {
+      getTotalNumberOfResponses: function(courseId){
+        return this.count({
+          where: {
+            answered: true,
+            courseId: courseId
+          }
+        });
+      }
+    }
   });
   return studentCourse;
 };

@@ -40,7 +40,7 @@ module.exports.isAuthenticated = (req, res, next) => {
 
   var userId = jwtToken.verifyToken(req.header('token'), (err, payload) => {
     if(err) {
-      res.status(401).json({error: 'Invalid authentication token!'});
+      return res.status(401).json({error: 'Invalid authentication token!'});
     };
 
     user.findOne({
@@ -52,7 +52,7 @@ module.exports.isAuthenticated = (req, res, next) => {
       next();
     }).catch((err) => {
       res.status(401).json({error: 'Authentication failed!'});
-      return req.end();
+      // return req.end();
     });
   });
 };

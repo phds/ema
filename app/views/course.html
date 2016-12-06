@@ -6,7 +6,24 @@
           <span>Informações detalhadas sobre os resultados.</span>
       </div>
   </div>
-  <canvas id="myChart"></canvas>
+  <h4 class="margin-bottom-md">Informações da turma de <span id="nome-turma"></span></h4>
+  <div class="row">
+    <div class="card card-block col-sm-6 padding-top-sm">
+      <p class="card-text">Prompt: <span id="prompt-turma"></span></p>
+      <p class="card-text">Código: <span id="codigo-turma"></span></p>
+      <p class="card-text">Número de respostas: <span id="numero-respostas"></span></p>
+    </div>
+  </div>
+  <div class="row margin-top-md">
+    <h5>Gráfico de respostas da turma por categoria</h5>
+    <div id="stats-content">
+      <canvas id="myChart"></canvas>
+      <img src="/images/escala.png" alt="" class="img-fluid">
+    </div>
+  </div>
 </div>
 <script src="/scripts/chart.js" charset="utf-8"></script>
 <script src="/scripts/course.js" charset="utf-8"></script>
+<script type="text/javascript">
+  setPageInformation({{{course_id}}});
+</script>

@@ -69,7 +69,7 @@ function submitNewUser(){
     canSubmit = false;
   }
   else{
-    requestBody['birthday'] = new Date(el.value); //TODO: VER COMO ARRUMAR O ANIVERSARIO
+    requestBody['birthday'] = new Date(el.value);
   }
 
   el = document.querySelector('#inputGender');

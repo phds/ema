@@ -139,4 +139,24 @@ module.exports.answerCourse = (req, res) => {
 
 //gets all the answers
 module.exports.detailCourse = (req, res) => {
+  var user = req.user;
+
+  if(!user.isProfessor){
+    return res.status(403).json({error: 'User needs to be a professor!'});
+  }
+
+  var courseId = req.params.course_id;
+
+  var responseObject = {};
+  var promises = [];
+  promises.push(models.course.findOne({where:{id: courseId}}));
+  promises.push(models.answer.getCourseStats(courseId));
+  promises.push(models.student_course.getTotalNumberOfResponses(courseId))
+  Promise.all(promises).then((data) => {
+    responseObject.course = data[0];
+    responseObject.stats = data[1];
+    responseObject.numberOfResponses = data[2];
+    //TODO: [urgente] responseObject.students
+    res.json(responseObject);
+  });
 }

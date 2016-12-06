@@ -63,7 +63,7 @@ function refreshCoursesList(){
           var aElement = document.createElement('a');
           aElement.classList = 'list-group-item list-group-item-action';
           aElement.innerHTML = data[i].courseName;
-          aElement.href = '/course/' + data[i].courseId + '/details';
+          aElement.href = '/course/' + data[i].courseId;
 
           coursesDiv.appendChild(aElement);
         }

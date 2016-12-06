@@ -44,9 +44,9 @@ function setChart(data){
   var myChart = new Chart(ctx, {
       type: 'bar',
       data: {
-          labels: ["Desmotivação", "Externa Por frequencia", "Ext. soc.", "Introjetada", "Identificada", "Integrada", "Intrínseca"],
+          labels: ["Desmotivação", "Regulação Externa frequencia", "Regulação externa social", "Regulação Introjetada", "Regulação Identificada", "Regulação Integrada", "Intrínseca"],
           datasets: [{
-              label: 'Média da motivação',
+              label: 'Pontuação média para cada tipo de motivação',
               data: data,
               backgroundColor: [
                   'rgba(255, 99, 132, 0.2)',

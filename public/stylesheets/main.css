@@ -44,6 +44,10 @@ html, body {
     flex-direction: row;
 }
 
+.table td {
+   text-align: center;
+}
+
 .line-yellow {
     flex: 1 1 auto;
     background-color: rgb(244, 178, 9);

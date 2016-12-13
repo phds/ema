@@ -152,11 +152,13 @@ module.exports.detailCourse = (req, res) => {
   promises.push(models.course.findOne({where:{id: courseId}}));
   promises.push(models.answer.getCourseStats(courseId));
   promises.push(models.student_course.getTotalNumberOfResponses(courseId))
+  promises.push(models.student_course.getStudentsStats(courseId));
   Promise.all(promises).then((data) => {
     responseObject.course = data[0];
     responseObject.stats = data[1];
     responseObject.numberOfResponses = data[2];
-    //TODO: [urgente] responseObject.students
+    responseObject.students = data[3];
+    console.log(responseObject);
     res.json(responseObject);
   });
 }

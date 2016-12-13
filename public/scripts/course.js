@@ -11,11 +11,8 @@ function setPageInformation(courseId){
   request.onload = function(){
     if (request.status >= 200 && request.status < 400) {
       var data = JSON.parse(request.responseText);
-      console.log(data);
-      document.querySelector('#nome-turma').innerHTML = data.course.name;
-      document.querySelector('#prompt-turma').innerHTML = data.course.prompt;
-      document.querySelector('#codigo-turma').innerHTML = data.course.code;
-      document.querySelector('#numero-respostas').innerHTML = data.numberOfResponses;
+
+      console.log(data)
 
       if(data.stats.length === 0){
         var myNode = document.getElementById("stats-content");
@@ -29,7 +26,11 @@ function setPageInformation(courseId){
         for(var i = 0; i < data.stats.length; i++){
           averagesArray.push(data.stats[i].mean);
         }
+
         setChart(averagesArray);
+        setCard(data);
+        setStatsTable(data);
+        setStudentsInfo(data.students);
       }
     }
     else{
@@ -37,6 +38,62 @@ function setPageInformation(courseId){
     }
   };
   request.send();
+}
+
+function setStudentsInfo(students){
+
+  var originalCard = document.querySelector('.student-info').cloneNode(true);
+  document.querySelector('.student-info').remove();
+
+  for (var i = 0; i < students.length; i++) {
+    setCardInfo(i, students[i]);
+  }
+
+  function setCardInfo(i, student){
+    var card = originalCard.cloneNode(true);
+    console.log(card);
+    card.querySelector('#name').href = "#collapse" + i;
+    card.querySelector('#name').innerHTML = student.name;
+
+    card.querySelector('.table-container').id = "collapse"+i;
+    for(var i = 0; i< student.averages.length; i++){
+      var td = document.createElement('td');
+      td.innerHTML = student.averages[i].average.toFixed(2);
+      card.querySelector('.mean-row').appendChild(td)
+    }
+
+    document.querySelector('#accordion').appendChild(card);
+  }
+
+}
+
+function setStatsTable(data){
+  var stats = data.stats;
+
+  for(var i = 0; i< stats.length; i++){
+    var td = document.createElement('td');
+    td.innerHTML = stats[i].mean.toFixed(2);
+    document.querySelector('#mean-row').appendChild(td);
+
+    var td = document.createElement('td');
+    td.innerHTML = stats[i].stdev.toFixed(2);
+    document.querySelector('#stdev-row').appendChild(td);
+
+    var td = document.createElement('td');
+    td.innerHTML = stats[i].max.toFixed(2);
+    document.querySelector('#max-row').appendChild(td);
+
+    var td = document.createElement('td');
+    td.innerHTML = stats[i].min.toFixed(2);
+    document.querySelector('#min-row').appendChild(td);
+  }
+}
+
+function setCard(data){
+  document.querySelector('#nome-turma').innerHTML = data.course.name;
+  document.querySelector('#prompt-turma').innerHTML = data.course.prompt;
+  document.querySelector('#codigo-turma').innerHTML = data.course.code;
+  document.querySelector('#numero-respostas').innerHTML = data.numberOfResponses;
 }
 
 function setChart(data){

@@ -22,9 +22,72 @@
     </div>
   </div>
   <div class="row margin-top-md">
+    <h5>Dados estatísticos da pesquisa dentro da escala de 1 à 7</h5>
+    <table class="table margin-top-md">
+      <thead>
+        <tr>
+          <th>Dado Estatístico</th>
+          <th>Desmotivação</th>
+          <th>Regulação extrínseca por frequência</th>
+          <th>Regulação extrínseca por social</th>
+          <th>Regulação Introjetada</th>
+          <th>Regulação Identificada</th>
+          <th>Regulação Integrada</th>
+          <th>Regulação Intrínseca</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr id="mean-row">
+          <th>Média</th>
+        </tr>
+        <tr id="stdev-row">
+          <th>Desvio Padrão</th>
+        </tr>
+        <tr id="min-row">
+          <th>Mínimo</th>
+        </tr>
+        <tr id="max-row">
+          <th>Máximo</th>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row margin-top-md">
     <h5>Respostas por estudante</h5>
-    <div class="list">
+    <div id="accordion" role="tablist" aria-multiselectable="true" class="margin-top-md">
+      <div class="card student-info">
+        <div class="card-header" role="tab" id="heading">
+          <h5 class="mb-0">
+            <a id="name" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+              Collapsible Group Item #1
+            </a>
+          </h5>
+        </div>
 
+        <div id="collapseOne" class="collapse table-container" role="tabpanel" aria-labelledby="headingOne">
+          <div class="card-block">
+            <table class="table margin-top-md">
+              <thead>
+                <tr>
+                  <th>Dado Estatístico</th>
+                  <th>Desmotivação</th>
+                  <th>Regulação extrínseca por frequência</th>
+                  <th>Regulação extrínseca por social</th>
+                  <th>Regulação Introjetada</th>
+                  <th>Regulação Identificada</th>
+                  <th>Regulação Integrada</th>
+                  <th>Regulação Intrínseca</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="mean-row">
+                  <th>Média</th>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
